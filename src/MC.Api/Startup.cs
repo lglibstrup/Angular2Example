@@ -4,9 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using MC.Api.Models;
 
 namespace MC.Api
 {
@@ -28,6 +30,10 @@ namespace MC.Api
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+            services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connection));
+
+
+            services.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin()));
             services.AddMvc();
         }
 
@@ -37,6 +43,7 @@ namespace MC.Api
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
+            app.UseCors("AllowAll");
             app.UseMvc();
         }
     }
