@@ -13,8 +13,8 @@ var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 // Imports for loading & configuring the in-memory web api
 var http_1 = require('@angular/http');
-var angular2_in_memory_web_api_1 = require('angular2-in-memory-web-api');
-var in_memory_data_service_1 = require('./services/in-memory-data.service');
+//import { InMemoryBackendService, SEED_DATA } from 'angular2-in-memory-web-api';
+//import { InMemoryDataService }               from './services/in-memory-data.service';
 var app_component_1 = require('./app.component');
 var app_routing_1 = require('./app.routing');
 var heroes_component_1 = require('./components/heroes.component');
@@ -41,9 +41,7 @@ var AppModule = (function () {
                 hero_search_component_1.HeroSearchComponent
             ],
             providers: [
-                hero_service_1.HeroService,
-                { provide: http_1.XHRBackend, useClass: angular2_in_memory_web_api_1.InMemoryBackendService },
-                { provide: angular2_in_memory_web_api_1.SEED_DATA, useClass: in_memory_data_service_1.InMemoryDataService } // in-mem server data
+                hero_service_1.HeroService
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

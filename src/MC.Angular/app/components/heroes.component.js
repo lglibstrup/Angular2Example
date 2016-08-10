@@ -21,7 +21,9 @@ var HeroesComponent = (function () {
         var _this = this;
         this.heroService
             .getHeroes()
-            .then(function (heroes) { return _this.heroes = heroes; })
+            .then(function (heroes) {
+            _this.heroes = heroes;
+        })
             .catch(function (error) { return _this.error = error; });
     };
     HeroesComponent.prototype.addHero = function () {

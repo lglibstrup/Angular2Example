@@ -22,7 +22,9 @@ export class HeroesComponent implements OnInit {
     getHeroes() {
         this.heroService
             .getHeroes()
-            .then(heroes => this.heroes = heroes)
+            .then(heroes => {
+                this.heroes = heroes
+            })
             .catch(error => this.error = error);
     }
 
