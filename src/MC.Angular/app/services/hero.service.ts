@@ -22,15 +22,17 @@ export class HeroService {
         }
         return this.post(hero);
     }
+
     delete(hero: Hero) {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         let url = `${this.heroesUrl}/${hero.id}`;
         return this.http
-            .delete(url, { headers: headers })
+            .delete(url)
             .toPromise()
             .catch(this.handleError);
     }
+
     // Add new Hero
     private post(hero: Hero): Promise<Hero> {
         let headers = new Headers({
@@ -42,6 +44,7 @@ export class HeroService {
             .then(res => res.json().data)
             .catch(this.handleError);
     }
+
     // Update existing Hero
     private put(hero: Hero) {
         let headers = new Headers();
@@ -53,6 +56,7 @@ export class HeroService {
             .then(() => hero)
             .catch(this.handleError);
     }
+
     private handleError(error: any) {
         console.error('An error occurred', error);
         return Promise.reject(error.message || error);

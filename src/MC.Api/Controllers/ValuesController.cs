@@ -35,6 +35,8 @@ namespace MC.Api.Controllers
         [HttpPost]
         public Hero Post([FromBody]Hero hero)
         {
+            _context.Heroes.Add(hero);
+            _context.SaveChanges();
             return hero;
         }
 
@@ -43,6 +45,7 @@ namespace MC.Api.Controllers
         public Hero Put(int id, [FromBody]Hero hero)
         {
             _context.Heroes.Update(hero);
+            _context.SaveChanges();
             return hero;
         }
 
@@ -52,6 +55,7 @@ namespace MC.Api.Controllers
         {
             var hero = _context.Heroes.Single(h => h.Id == id);
             _context.Heroes.Remove(hero);
+            _context.SaveChanges();
         }
     }
 }

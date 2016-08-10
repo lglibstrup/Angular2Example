@@ -37,7 +37,7 @@ var HeroService = (function () {
         headers.append('Content-Type', 'application/json');
         var url = this.heroesUrl + "/" + hero.id;
         return this.http
-            .delete(url, { headers: headers })
+            .delete(url)
             .toPromise()
             .catch(this.handleError);
     };

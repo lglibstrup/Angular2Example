@@ -32,8 +32,13 @@ namespace MC.Api
             // Add framework services.
             services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connection));
 
+            services.AddCors(o => o.AddPolicy("AllowAll", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
 
-            services.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin()));
             services.AddMvc();
         }
 
