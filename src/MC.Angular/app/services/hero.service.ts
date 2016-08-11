@@ -4,7 +4,7 @@ import 'rxjs/add/operator/toPromise';
 import { Hero } from '../model/hero';
 @Injectable()
 export class HeroService {
-    private heroesUrl = 'http://localhost:55008/api/values';  // URL to web api
+    private heroesUrl = 'http://localhost:55008/api/heroes';  // URL to web api
     constructor(private http: Http) { }
     getHeroes() {
         return this.http.get(this.heroesUrl)

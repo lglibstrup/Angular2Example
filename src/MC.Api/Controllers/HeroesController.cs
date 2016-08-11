@@ -3,59 +3,54 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using MC.Api.Models;
+using MC.Models;
+using MC.Services.Interfaces;
 
 namespace MC.Api.Controllers
 {
-    [Route("api/[controller]")]
-    public class ValuesController : Controller
+    [Route("api/heroes")]
+    public class HeroesController : Controller
     {
-        private DatabaseContext _context;
-        public ValuesController(DatabaseContext context)
+        private IHeroService _heroService;
+
+        public HeroesController(IHeroService heroService)
         {
-            _context = context;
+            _heroService = heroService;
         }
-
-
         // GET api/values
         [HttpGet]
         public IEnumerable<Hero> Get()
         {
-            return _context.Heroes;
+            return _heroService.GetAll();
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
         public Hero Get(int id)
         {
-            return _context.Heroes.Single(h => h.Id == id);
+            return _heroService.GetSingle(id);
         }
 
         // POST api/values
         [HttpPost]
         public Hero Post([FromBody]Hero hero)
         {
-            _context.Heroes.Add(hero);
-            _context.SaveChanges();
-            return hero;
+            return _heroService.Add(hero);
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
         public Hero Put(int id, [FromBody]Hero hero)
         {
-            _context.Heroes.Update(hero);
-            _context.SaveChanges();
-            return hero;
+            return _heroService.Edit(hero);
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            var hero = _context.Heroes.Single(h => h.Id == id);
-            _context.Heroes.Remove(hero);
-            _context.SaveChanges();
+            var hero = _heroService.GetSingle(id);
+            _heroService.Delete(hero);
         }
     }
 }

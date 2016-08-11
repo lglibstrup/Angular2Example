@@ -5,7 +5,7 @@
       "type": "platform"
     },
     "Microsoft.AspNetCore.Diagnostics": "1.0.0",
-    
+
     "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0",
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0",
     "Microsoft.Extensions.Logging.Console": "1.0.0"
@@ -44,5 +44,7 @@
 
   "scripts": {
     "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
-  }
+  },
+
+  "compileExclude": "node_modules"
 }

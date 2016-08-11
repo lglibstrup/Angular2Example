@@ -8,7 +8,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using MC.Api.Models;
+using MC.Models;
+using MC.Services.Interfaces;
+using MC.Services.Services;
+using MC.DataAccess;
+using MC.DataAccess.Repositories;
+using MC.DataAccess.Interfaces;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace MC.Api
 {
@@ -30,7 +36,11 @@ namespace MC.Api
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connection));
+            services.AddEntityFrameworkSqlServer().AddDbContext<MCContext>((serviceProvider, options) =>
+                options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]).UseInternalServiceProvider(serviceProvider));
+
+            services.AddTransient<IHeroService, HeroService>();
+            services.AddScoped<IHeroRepository, HeroRepository>();
 
             services.AddCors(o => o.AddPolicy("AllowAll", builder =>
             {
