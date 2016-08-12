@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using MC.Models;
 using MC.Services.Interfaces;
+using MC.Models.Models;
 
 namespace MC.Api.Controllers
 {
@@ -19,28 +16,28 @@ namespace MC.Api.Controllers
         }
         // GET api/values
         [HttpGet]
-        public IEnumerable<Hero> Get()
+        public IEnumerable<HeroModel> Get()
         {
             return _heroService.GetAll();
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public Hero Get(int id)
+        public HeroModel Get(int id)
         {
             return _heroService.GetSingle(id);
         }
 
         // POST api/values
         [HttpPost]
-        public Hero Post([FromBody]Hero hero)
+        public HeroModel Post([FromBody]HeroModel hero)
         {
             return _heroService.Add(hero);
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public Hero Put(int id, [FromBody]Hero hero)
+        public HeroModel Put(int id, [FromBody]HeroModel hero)
         {
             return _heroService.Edit(hero);
         }

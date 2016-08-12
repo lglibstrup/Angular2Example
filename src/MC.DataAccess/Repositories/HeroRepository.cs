@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MC.Models;
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
+using MC.Models.Entities;
 
 namespace MC.DataAccess.Repositories
 {

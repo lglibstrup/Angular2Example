@@ -5,43 +5,53 @@ using System.Linq;
 using System.Threading.Tasks;
 using MC.Models;
 using MC.DataAccess.Interfaces;
+using MC.Models.Models;
 
 namespace MC.Services.Services
 {
     public class HeroService : IHeroService
     {
         private readonly IHeroRepository _heroRepository;
+        private readonly Factory _factory;
 
-        public HeroService(IHeroRepository heroRepository)
+        public HeroService(IHeroRepository heroRepository, Factory factory)
         {
             _heroRepository = heroRepository;
+            _factory = factory;
         }
 
-        public Hero Add(Hero hero)
+        public HeroModel Add(HeroModel hero)
         {
-            _heroRepository.Add(hero);
-            return hero;
+            var entity = _factory.Parse(hero);
+            _heroRepository.Add(entity);
+            return _factory.Create(entity);
         }
 
-        public void Delete(Hero hero)
+        public void Delete(HeroModel hero)
         {
-            _heroRepository.Delete(hero);
+            var entity = _factory.Parse(hero);
+            _heroRepository.Delete(entity);
         }
 
-        public Hero Edit(Hero hero)
+        public HeroModel Edit(HeroModel hero)
         {
-            _heroRepository.Edit(hero);
-            return hero;
+            var entity = _factory.Parse(hero);
+            _heroRepository.Edit(entity);
+            return _factory.Create(entity);
         }
 
-        public IEnumerable<Hero> GetAll()
+        public IEnumerable<HeroModel> GetAll()
         {
-            return _heroRepository.GetAll();
+            var entities = _heroRepository.GetAll();
+            var models = entities.Select(e => _factory.Create(e));
+            return models;
         }
 
-        public Hero GetSingle(int entityKey)
+        public HeroModel GetSingle(int id)
         {
-            return _heroRepository.GetSingle(entityKey);
+            var entity = _heroRepository.GetSingle(id);
+            var model = _factory.Create(entity);
+            return model;
         }
     }
 }

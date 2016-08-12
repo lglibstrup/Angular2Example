@@ -1,4 +1,5 @@
 ﻿using MC.Models;
+using MC.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,5 +9,6 @@ namespace MC.DataAccess.Interfaces
 {
     public interface IHeroRepository : IRepository<Hero, int>
     {
+
     }
 }

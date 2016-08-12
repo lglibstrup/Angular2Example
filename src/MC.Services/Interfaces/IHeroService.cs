@@ -1,12 +1,9 @@
-﻿using MC.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using MC.Models.Models;
 
 namespace MC.Services.Interfaces
 {
-    public interface IHeroService : IService<Hero, int>
+    public interface IHeroService : IService<HeroModel, int>
     {
+
     }
 }

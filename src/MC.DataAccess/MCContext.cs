@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MC.Models;
 using System;
 using System.Diagnostics;
+using MC.Models.Entities;
 
 namespace MC.DataAccess
 {
