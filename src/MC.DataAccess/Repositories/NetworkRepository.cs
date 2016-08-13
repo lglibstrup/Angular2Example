@@ -39,7 +39,7 @@ namespace MC.DataAccess.Repositories
 
         public IQueryable<Network> FindBy(Expression<Func<Network, bool>> expression)
         {
-            return MCContext.Networks.AsNoTracking().Where(expression);
+            return MCContext.Networks.AsNoTracking().Where(expression).Include(p => p.Items);
         }
 
         public IQueryable<Network> GetAll()
@@ -49,7 +49,7 @@ namespace MC.DataAccess.Repositories
 
         public Network GetSingle(int entityKey)
         {
-            return MCContext.Networks.AsNoTracking().Single(h => h.NetworkId == entityKey);
+            return MCContext.Networks.AsNoTracking().Include(p => p.Items).Single(h => h.NetworkId == entityKey);
         }
     }
 }
