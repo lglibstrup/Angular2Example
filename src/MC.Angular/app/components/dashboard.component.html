@@ -1,8 +1,12 @@
-﻿<h3>Top Heroes</h3>
-<div *ngFor="let network of networks">
+﻿<div *ngFor="let network of networks">
     <div class="row">
-        <div class="col-md-12 alert alert-danger">
-            <h4>{{network.name}}</h4>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                {{network.name}}
+            </div>
+            <div class="panel-body">
+                <item-table [items]="network.items"></item-table>
+            </div>
         </div>
     </div>
 </div>

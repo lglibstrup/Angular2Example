@@ -10,7 +10,7 @@ export class NetworkService {
     getHeroes() {
         return this.http.get(this.heroesUrl)
             .toPromise()
-            .then(response => response.json() as Network[])
+            .then(response =>  response.json() as Network[])
             .catch(this.handleError);
     }
     getHero(id: number) {

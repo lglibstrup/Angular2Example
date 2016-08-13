@@ -1,4 +1,8 @@
 ﻿export class Item {
-    id: number;
+    itemId: number;
     name: string;
+    blockId: number;
+    blockMetaData: number;
+    numberStored: number;
+    networkId: number;
 }

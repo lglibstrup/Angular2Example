@@ -12,6 +12,8 @@ import { HeroesComponent }      from './components/heroes.component';
 import { DashboardComponent }   from './components/dashboard.component';
 import { HeroDetailComponent }  from './components/hero-detail.component';
 
+import { ItemTableComponent } from './components/minor/item-table.component';
+
 import { HeroService }  from './services/hero.service';
 import { NetworkService } from './services/networkservice';
 
@@ -27,6 +29,7 @@ import { NetworkService } from './services/networkservice';
         HeroesComponent,
         DashboardComponent,
         HeroDetailComponent,
+        ItemTableComponent
     ],
     providers: [
         HeroService,
