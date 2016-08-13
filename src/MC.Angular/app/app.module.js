@@ -13,8 +13,6 @@ var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 // Imports for loading & configuring the in-memory web api
 var http_1 = require('@angular/http');
-//import { InMemoryBackendService, SEED_DATA } from 'angular2-in-memory-web-api';
-//import { InMemoryDataService }               from './services/in-memory-data.service';
 var app_component_1 = require('./app.component');
 var app_routing_1 = require('./app.routing');
 var heroes_component_1 = require('./components/heroes.component');

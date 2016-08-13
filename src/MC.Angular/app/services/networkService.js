@@ -12,28 +12,28 @@ var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 require('rxjs/add/operator/toPromise');
 var variables = require('../app.var');
-var HeroService = (function () {
-    function HeroService(http) {
+var NetworkService = (function () {
+    function NetworkService(http) {
         this.http = http;
-        this.heroesUrl = variables.apiUrl + "heroes";
+        this.heroesUrl = variables.apiUrl + "networks";
     }
-    HeroService.prototype.getHeroes = function () {
+    NetworkService.prototype.getHeroes = function () {
         return this.http.get(this.heroesUrl)
             .toPromise()
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    HeroService.prototype.getHero = function (id) {
+    NetworkService.prototype.getHero = function (id) {
         return this.getHeroes()
             .then(function (heroes) { return heroes.find(function (hero) { return hero.id === id; }); });
     };
-    HeroService.prototype.save = function (hero) {
+    NetworkService.prototype.save = function (hero) {
         if (hero.id) {
             return this.put(hero);
         }
         return this.post(hero);
     };
-    HeroService.prototype.delete = function (hero) {
+    NetworkService.prototype.delete = function (hero) {
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
         var url = this.heroesUrl + "/" + hero.id;
@@ -43,7 +43,7 @@ var HeroService = (function () {
             .catch(this.handleError);
     };
     // Add new Hero
-    HeroService.prototype.post = function (hero) {
+    NetworkService.prototype.post = function (hero) {
         var headers = new http_1.Headers({
             'Content-Type': 'application/json'
         });
@@ -54,7 +54,7 @@ var HeroService = (function () {
             .catch(this.handleError);
     };
     // Update existing Hero
-    HeroService.prototype.put = function (hero) {
+    NetworkService.prototype.put = function (hero) {
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
         var url = this.heroesUrl + "/" + hero.id;
@@ -64,15 +64,15 @@ var HeroService = (function () {
             .then(function () { return hero; })
             .catch(this.handleError);
     };
-    HeroService.prototype.handleError = function (error) {
+    NetworkService.prototype.handleError = function (error) {
         console.error('An error occurred', error);
         return Promise.reject(error.message || error);
     };
-    HeroService = __decorate([
+    NetworkService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
-    ], HeroService);
-    return HeroService;
+    ], NetworkService);
+    return NetworkService;
 }());
-exports.HeroService = HeroService;
-//# sourceMappingURL=hero.service.js.map
+exports.NetworkService = NetworkService;
+//# sourceMappingURL=networkService.js.map
