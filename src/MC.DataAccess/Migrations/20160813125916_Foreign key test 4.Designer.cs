@@ -8,9 +8,10 @@ using MC.DataAccess;
 namespace MC.DataAccess.Migrations
 {
     [DbContext(typeof(MCContext))]
-    partial class MCContextModelSnapshot : ModelSnapshot
+    [Migration("20160813125916_Foreign key test 4")]
+    partial class Foreignkeytest4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")

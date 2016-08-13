@@ -8,8 +8,8 @@ using MC.DataAccess;
 namespace MC.DataAccess.Migrations
 {
     [DbContext(typeof(MCContext))]
-    [Migration("20160813085121_New network classes")]
-    partial class Newnetworkclasses
+    [Migration("20160813123826_Foreign key test 2")]
+    partial class Foreignkeytest2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,7 +31,7 @@ namespace MC.DataAccess.Migrations
 
             modelBuilder.Entity("MC.Models.Entities.Item", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ItemId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("BlockId");
@@ -40,34 +40,43 @@ namespace MC.DataAccess.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<int?>("NetworkId");
+                    b.Property<int>("NetworkId");
+
+                    b.Property<int?>("NetworkId1");
 
                     b.Property<double>("NumberStored");
 
-                    b.HasKey("Id");
+                    b.HasKey("ItemId");
 
                     b.HasIndex("NetworkId");
+
+                    b.HasIndex("NetworkId1");
 
                     b.ToTable("Items");
                 });
 
             modelBuilder.Entity("MC.Models.Entities.Network", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("NetworkId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Name");
 
-                    b.HasKey("Id");
+                    b.HasKey("NetworkId");
 
                     b.ToTable("Networks");
                 });
 
             modelBuilder.Entity("MC.Models.Entities.Item", b =>
                 {
+                    b.HasOne("MC.Models.Entities.Network", "Network")
+                        .WithMany()
+                        .HasForeignKey("NetworkId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("MC.Models.Entities.Network")
                         .WithMany("Items")
-                        .HasForeignKey("NetworkId");
+                        .HasForeignKey("NetworkId1");
                 });
         }
     }

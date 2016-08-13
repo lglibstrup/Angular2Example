@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace MC.DataAccess.Migrations
 {
-    public partial class Newnetworkclasses : Migration
+    public partial class Foreignkeytest : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -26,36 +26,36 @@ namespace MC.DataAccess.Migrations
                 name: "Networks",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    NetworkId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Networks", x => x.Id);
+                    table.PrimaryKey("PK_Networks", x => x.NetworkId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Items",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    ItemId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     BlockId = table.Column<int>(nullable: false),
                     BlockMetaData = table.Column<int>(nullable: false),
                     Name = table.Column<string>(nullable: true),
-                    NetworkId = table.Column<int>(nullable: true),
+                    NetworkId = table.Column<int>(nullable: false),
                     NumberStored = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Items", x => x.Id);
+                    table.PrimaryKey("PK_Items", x => x.ItemId);
                     table.ForeignKey(
                         name: "FK_Items_Networks_NetworkId",
                         column: x => x.NetworkId,
                         principalTable: "Networks",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "NetworkId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

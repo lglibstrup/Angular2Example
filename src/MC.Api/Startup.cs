@@ -27,7 +27,7 @@ namespace MC.Api
 
         public IConfigurationRoot Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        // This method gets called by the runtime. Use this9 method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
@@ -37,6 +37,13 @@ namespace MC.Api
             services.AddScoped<Factory>();
             services.AddScoped<IHeroService, HeroService>();
             services.AddScoped<IHeroRepository, HeroRepository>();
+
+            services.AddScoped<IItemService, ItemService>();
+            services.AddScoped<IItemRepository, ItemRepository>();
+
+            services.AddScoped<INetworkService, NetworkService>();
+            services.AddScoped<INetworkRepository, NetworkRepository>();
+
 
             services.AddCors(o => o.AddPolicy("AllowAll", builder =>
             {

@@ -44,7 +44,7 @@ namespace MC.DataAccess.Repositories
 
         public IQueryable<Network> GetAll()
         {
-            return MCContext.Networks.AsNoTracking();
+            return MCContext.Networks.AsNoTracking().Include(p => p.Items);
         }
 
         public Network GetSingle(int entityKey)

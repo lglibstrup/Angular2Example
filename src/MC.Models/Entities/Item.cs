@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -18,5 +19,7 @@ namespace MC.Models.Entities
         public double NumberStored { get; set; }
 
         public int NetworkId { get; set; }
+
+        public Network Network { get; set; }
     }
 }

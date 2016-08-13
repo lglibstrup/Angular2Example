@@ -94,7 +94,7 @@ namespace MC.Models
                 {
                     NetworkId = network.NetworkId,
                     Name = network.Name,
-                    Items = network.Items.Select(e => Create(e)).ToList()
+                    Items = network.Items?.Select(e => Create(e)).ToList()
                 };
 
                 return networkModel;

@@ -28,5 +28,13 @@ namespace MC.DataAccess
                 throw;
             }
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Item>()
+                .HasOne(p => p.Network)
+                .WithMany(b => b.Items)
+                .HasForeignKey(p => p.NetworkId);
+        }
     }
 }
