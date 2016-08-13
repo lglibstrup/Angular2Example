@@ -9,6 +9,7 @@ using MC.Services.Services;
 using MC.DataAccess;
 using MC.DataAccess.Repositories;
 using MC.DataAccess.Interfaces;
+using MC.Models;
 
 namespace MC.Api
 {
@@ -33,7 +34,8 @@ namespace MC.Api
             services.AddEntityFrameworkSqlServer().AddDbContext<MCContext>((serviceProvider, options) =>
                 options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]).UseInternalServiceProvider(serviceProvider));
 
-            services.AddTransient<IHeroService, HeroService>();
+            services.AddScoped<Factory>();
+            services.AddScoped<IHeroService, HeroService>();
             services.AddScoped<IHeroRepository, HeroRepository>();
 
             services.AddCors(o => o.AddPolicy("AllowAll", builder =>

@@ -39,17 +39,17 @@ namespace MC.DataAccess.Repositories
 
         public IQueryable<Hero> FindBy(Expression<Func<Hero, bool>> expression)
         {
-            return MCContext.Heroes.Where(expression);
+            return MCContext.Heroes.AsNoTracking().Where(expression);
         }
 
         public IQueryable<Hero> GetAll()
         {
-            return MCContext.Heroes;
+            return MCContext.Heroes.AsNoTracking();
         }
 
         public Hero GetSingle(int entityKey)
         {
-            return MCContext.Heroes.Single(h => h.Id == entityKey);
+            return MCContext.Heroes.AsNoTracking().Single(h => h.Id == entityKey);
         }
     }
 }

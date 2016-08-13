@@ -6,8 +6,8 @@ namespace MC.Services.Interfaces
     {
         IEnumerable<T> GetAll();
         T GetSingle(TK entityKey);
-        T Add(T job);
-        void Delete(T job);
-        T Edit(T job);
+        T Add(T entity);
+        void Delete(T entity);
+        T Edit(T entity);
     }
 }
