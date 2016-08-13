@@ -13,6 +13,8 @@ namespace MC.DataAccess
         }
 
         public DbSet<Hero> Heroes { get; set; }
+        public DbSet<Item> Items { get; set; }
+        public DbSet<Network> Networks { get; set; }
 
         public override int SaveChanges()
         {

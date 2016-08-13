@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using MC.Services.Interfaces;
-using MC.Models.Models;
+using MC.Models.Model;
 
 namespace MC.Api.Controllers
 {

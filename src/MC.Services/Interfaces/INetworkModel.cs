@@ -2,7 +2,7 @@
 
 namespace MC.Services.Interfaces
 {
-    public interface IHeroService : IService<HeroModel, int>
+    public interface INetworkService : IService<NetworkModel, int>
     {
 
     }

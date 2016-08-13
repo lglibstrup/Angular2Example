@@ -9,6 +9,8 @@ namespace MC.DataAccess
     public interface IMCContext : IDisposable
     {
         DbSet<Hero> Heroes { get; set; }
+        DbSet<Item> Items { get; set; }
+        DbSet<Network> Networks { get; set; }
 
         int SaveChanges();
 

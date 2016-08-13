@@ -1,4 +1,4 @@
-﻿namespace MC.Models.Models
+﻿namespace MC.Models.Model
 {
     public class HeroModel
     {
