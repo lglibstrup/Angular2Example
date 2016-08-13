@@ -10,29 +10,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var hero_service_1 = require('../services/hero.service');
+var networkservice_1 = require('../services/networkservice');
 var DashboardComponent = (function () {
-    function DashboardComponent(router, heroService) {
+    function DashboardComponent(router, networkService) {
         this.router = router;
-        this.heroService = heroService;
-        this.heroes = [];
+        this.networkService = networkService;
+        this.networks = [];
     }
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.heroService.getHeroes()
-            .then(function (heroes) { return _this.heroes = heroes; });
-    };
-    DashboardComponent.prototype.gotoDetail = function (hero) {
-        var link = ['/detail', hero.id];
-        this.router.navigate(link);
+        this.networkService.getHeroes()
+            .then(function (networks) { return _this.networks = networks; });
     };
     DashboardComponent = __decorate([
         core_1.Component({
             selector: 'my-dashboard',
-            templateUrl: 'app/components/dashboard.component.html',
-            styleUrls: ['app/components/dashboard.component.css']
+            templateUrl: 'app/components/dashboard.component.html'
         }), 
-        __metadata('design:paramtypes', [router_1.Router, hero_service_1.HeroService])
+        __metadata('design:paramtypes', [router_1.Router, networkservice_1.NetworkService])
     ], DashboardComponent);
     return DashboardComponent;
 }());

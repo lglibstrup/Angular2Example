@@ -1,29 +1,23 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { Router }            from '@angular/router';
 
-import { Hero }        from '../model/hero';
-import { HeroService } from '../services/hero.service';
+import { Network }        from '../model/network';
+import { NetworkService } from '../services/networkservice';
 
 @Component({
     selector: 'my-dashboard',
-    templateUrl: 'app/components/dashboard.component.html',
-    styleUrls: ['app/components/dashboard.component.css']
+    templateUrl: 'app/components/dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
-    public heroes: Hero[] = [];
+    public networks: Network[] = [];
 
     constructor(
         private router: Router,
-        private heroService: HeroService) {
+        private networkService: NetworkService) {
     }
 
     ngOnInit() {
-        this.heroService.getHeroes()
-            .then(heroes => this.heroes = heroes);
-    }
-
-    gotoDetail(hero: Hero) {
-        let link = ['/detail', hero.id];
-        this.router.navigate(link);
+        this.networkService.getHeroes()
+            .then(networks => this.networks = networks);
     }
 }

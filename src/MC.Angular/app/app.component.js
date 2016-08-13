@@ -12,13 +12,11 @@ var core_1 = require('@angular/core');
 require('./rxjs-extensions');
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = 'Tour of Heroes';
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n    <h1>{{title}}</h1>\n    <nav>\n      <a routerLink=\"/dashboard\" routerLinkActive=\"active\">Dashboard</a>\n      <a routerLink=\"/heroes\" routerLinkActive=\"active\">Heroes</a>\n    </nav>\n    <router-outlet></router-outlet>\n  ",
-            styleUrls: ['app/app.component.css']
+            template: "\n    <nav>\n      <a routerLink=\"/dashboard\" routerLinkActive=\"active\">Dashboard</a>\n      <a routerLink=\"/heroes\" routerLinkActive=\"active\">Heroes</a>\n    </nav>\n    <div class=\"container\">\n    <router-outlet></router-outlet>\n    </div>\n  ",
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

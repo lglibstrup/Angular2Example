@@ -75,4 +75,4 @@ var NetworkService = (function () {
     return NetworkService;
 }());
 exports.NetworkService = NetworkService;
-//# sourceMappingURL=networkService.js.map
+//# sourceMappingURL=networkservice.js.map
