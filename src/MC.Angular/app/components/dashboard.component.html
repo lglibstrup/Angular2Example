@@ -1,12 +1,4 @@
 ﻿<div *ngFor="let network of networks">
-    <div class="row">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                {{network.name}}
-            </div>
-            <div class="panel-body">
-                <item-table [items]="network.items"></item-table>
-            </div>
-        </div>
-    </div>
+    <h1>{{network.name}}</h1>
+    <item-table [items]="network.items"></item-table>
 </div>

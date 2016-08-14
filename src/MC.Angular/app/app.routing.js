@@ -2,7 +2,7 @@
 var router_1 = require('@angular/router');
 var dashboard_component_1 = require('./components/dashboard.component');
 var heroes_component_1 = require('./components/heroes.component');
-var hero_detail_component_1 = require('./components/hero-detail.component');
+var test_component_1 = require('./components/test.component');
 var appRoutes = [
     {
         path: '',
@@ -14,12 +14,12 @@ var appRoutes = [
         component: dashboard_component_1.DashboardComponent
     },
     {
-        path: 'detail/:id',
-        component: hero_detail_component_1.HeroDetailComponent
-    },
-    {
         path: 'heroes',
         component: heroes_component_1.HeroesComponent
+    },
+    {
+        path: 'tests',
+        component: test_component_1.TestComponent
     }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);

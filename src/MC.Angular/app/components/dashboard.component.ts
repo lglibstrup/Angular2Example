@@ -5,7 +5,7 @@ import { Network }        from '../model/network';
 import { NetworkService } from '../services/networkservice';
 
 @Component({
-    selector: 'my-dashboard',
+    selector: 'dashboard',
     templateUrl: 'app/components/dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
@@ -17,7 +17,6 @@ export class DashboardComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.networkService.getHeroes()
-            .then(networks => this.networks = networks);
+        this.networkService.getHeroes().then(networks => this.networks = networks);
     }
 }

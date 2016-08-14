@@ -9,18 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-require('./rxjs-extensions');
-var AppComponent = (function () {
-    function AppComponent() {
+var router_1 = require('@angular/router');
+var hero_service_1 = require('../services/hero.service');
+var TestComponent = (function () {
+    function TestComponent(router, heroService) {
+        this.router = router;
+        this.heroService = heroService;
     }
-    AppComponent = __decorate([
+    TestComponent.prototype.ngOnInit = function () {
+    };
+    TestComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            templateUrl: 'app/app.component.html'
+            selector: 'testing',
+            templateUrl: 'app/components/test.component.html'
         }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+        __metadata('design:paramtypes', [router_1.Router, hero_service_1.HeroService])
+    ], TestComponent);
+    return TestComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.TestComponent = TestComponent;
+//# sourceMappingURL=test.component.js.map

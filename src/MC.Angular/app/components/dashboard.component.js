@@ -19,12 +19,11 @@ var DashboardComponent = (function () {
     }
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.networkService.getHeroes()
-            .then(function (networks) { return _this.networks = networks; });
+        this.networkService.getHeroes().then(function (networks) { return _this.networks = networks; });
     };
     DashboardComponent = __decorate([
         core_1.Component({
-            selector: 'my-dashboard',
+            selector: 'dashboard',
             templateUrl: 'app/components/dashboard.component.html'
         }), 
         __metadata('design:paramtypes', [router_1.Router, networkservice_1.NetworkService])

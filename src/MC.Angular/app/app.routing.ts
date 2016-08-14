@@ -2,7 +2,7 @@
 
 import { DashboardComponent }  from './components/dashboard.component';
 import { HeroesComponent }     from './components/heroes.component';
-import { HeroDetailComponent } from './components/hero-detail.component';
+import { TestComponent }     from './components/test.component';
 
 const appRoutes: Routes = [
     {
@@ -15,12 +15,12 @@ const appRoutes: Routes = [
         component: DashboardComponent
     },
     {
-        path: 'detail/:id',
-        component: HeroDetailComponent
-    },
-    {
         path: 'heroes',
         component: HeroesComponent
+    },
+    {
+        path: 'tests',
+        component: TestComponent
     }
 ];
 

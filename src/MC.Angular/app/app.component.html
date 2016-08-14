@@ -1,0 +1,19 @@
+﻿<nav class="navbar navbar-dark navbar-fixed-top bg-inverse">
+    <a class="navbar-brand" href="#">Project name</a>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li><a class="nav-item nav-link" routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
+                <li><a class="nav-item nav-link" routerLink="/heroes" routerLinkActive="active">Heroes</a></li>
+            </ul>
+            <ul class="nav nav-sidebar">
+                <li><a class="nav-item nav-link" routerLink="/tests" routerLinkActive="active">Tests</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 main">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

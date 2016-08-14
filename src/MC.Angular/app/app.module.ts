@@ -10,7 +10,7 @@ import { routing }        from './app.routing';
 
 import { HeroesComponent }      from './components/heroes.component';
 import { DashboardComponent }   from './components/dashboard.component';
-import { HeroDetailComponent }  from './components/hero-detail.component';
+import { TestComponent }     from './components/test.component';
 
 import { ItemTableComponent } from './components/minor/item-table.component';
 
@@ -28,8 +28,8 @@ import { NetworkService } from './services/networkservice';
         AppComponent,
         HeroesComponent,
         DashboardComponent,
-        HeroDetailComponent,
-        ItemTableComponent
+        ItemTableComponent,
+        TestComponent
     ],
     providers: [
         HeroService,
