@@ -1,7 +1,7 @@
 ﻿import { Item } from './item';
 
 export class Network {
-    id: number;
+    networkId: number;
     name: string;
     items: Item[];
 }

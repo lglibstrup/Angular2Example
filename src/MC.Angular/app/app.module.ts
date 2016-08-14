@@ -1,6 +1,7 @@
 ﻿import { NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
+import { AUTH_PROVIDERS } from 'angular2-jwt';
 
 // Imports for loading & configuring the in-memory web api
 import { HttpModule, XHRBackend } from '@angular/http';
@@ -8,14 +9,14 @@ import { HttpModule, XHRBackend } from '@angular/http';
 import { AppComponent }   from './app.component';
 import { routing }        from './app.routing';
 
-import { HeroesComponent }      from './components/heroes.component';
+import { LoginComponent }      from './components/login.component';
 import { DashboardComponent }   from './components/dashboard.component';
+import { NetworkDetailComponent }   from './components/network-detail.component';
 import { TestComponent }     from './components/test.component';
-
 import { ItemTableComponent } from './components/minor/item-table.component';
 
 import { HeroService }  from './services/hero.service';
-import { NetworkService } from './services/networkservice';
+import { NetworkService } from './services/network.service';
 
 @NgModule({
     imports: [
@@ -26,14 +27,15 @@ import { NetworkService } from './services/networkservice';
     ],
     declarations: [
         AppComponent,
-        HeroesComponent,
+        LoginComponent,
         DashboardComponent,
+        TestComponent,
         ItemTableComponent,
-        TestComponent
+        NetworkDetailComponent
     ],
     providers: [
         HeroService,
-        NetworkService
+        NetworkService,
     ],
     bootstrap: [AppComponent]
 })

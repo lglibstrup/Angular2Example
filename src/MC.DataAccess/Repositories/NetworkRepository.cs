@@ -49,7 +49,7 @@ namespace MC.DataAccess.Repositories
 
         public Network GetSingle(int entityKey)
         {
-            return MCContext.Networks.AsNoTracking().Include(p => p.Items).Single(h => h.NetworkId == entityKey);
+            return MCContext.Networks.AsNoTracking().Include(p => p.Items).SingleOrDefault(h => h.NetworkId == entityKey);
         }
     }
 }

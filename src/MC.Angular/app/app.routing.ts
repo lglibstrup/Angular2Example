@@ -1,7 +1,7 @@
 ﻿import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent }  from './components/dashboard.component';
-import { HeroesComponent }     from './components/heroes.component';
+import { NetworkDetailComponent }   from './components/network-detail.component';
 import { TestComponent }     from './components/test.component';
 
 const appRoutes: Routes = [
@@ -15,12 +15,16 @@ const appRoutes: Routes = [
         component: DashboardComponent
     },
     {
-        path: 'heroes',
-        component: HeroesComponent
-    },
-    {
         path: 'tests',
         component: TestComponent
+    },
+    {
+        path: 'network',
+        component: NetworkDetailComponent
+    },
+    {
+        path: 'network/:id',
+        component: NetworkDetailComponent
     }
 ];
 

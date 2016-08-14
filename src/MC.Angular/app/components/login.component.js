@@ -10,25 +10,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var network_service_1 = require('../services/network.service');
-var DashboardComponent = (function () {
-    function DashboardComponent(router, networkService) {
+var LoginComponent = (function () {
+    function LoginComponent(router) {
         this.router = router;
-        this.networkService = networkService;
-        this.networks = [];
     }
-    DashboardComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.networkService.getHeroes().then(function (networks) { return _this.networks = networks; });
+    LoginComponent.prototype.ngOnInit = function () {
     };
-    DashboardComponent = __decorate([
+    LoginComponent = __decorate([
         core_1.Component({
-            selector: 'dashboard',
-            templateUrl: 'app/components/dashboard.component.html'
+            selector: 'login',
+            templateUrl: 'app/components/login.component.html'
         }), 
-        __metadata('design:paramtypes', [router_1.Router, network_service_1.NetworkService])
-    ], DashboardComponent);
-    return DashboardComponent;
+        __metadata('design:paramtypes', [router_1.Router])
+    ], LoginComponent);
+    return LoginComponent;
 }());
-exports.DashboardComponent = DashboardComponent;
-//# sourceMappingURL=dashboard.component.js.map
+exports.LoginComponent = LoginComponent;
+//# sourceMappingURL=login.component.js.map

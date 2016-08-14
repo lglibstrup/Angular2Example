@@ -15,12 +15,13 @@ var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
 var app_component_1 = require('./app.component');
 var app_routing_1 = require('./app.routing');
-var heroes_component_1 = require('./components/heroes.component');
+var login_component_1 = require('./components/login.component');
 var dashboard_component_1 = require('./components/dashboard.component');
+var network_detail_component_1 = require('./components/network-detail.component');
 var test_component_1 = require('./components/test.component');
 var item_table_component_1 = require('./components/minor/item-table.component');
 var hero_service_1 = require('./services/hero.service');
-var networkservice_1 = require('./services/networkservice');
+var network_service_1 = require('./services/network.service');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -34,14 +35,15 @@ var AppModule = (function () {
             ],
             declarations: [
                 app_component_1.AppComponent,
-                heroes_component_1.HeroesComponent,
+                login_component_1.LoginComponent,
                 dashboard_component_1.DashboardComponent,
+                test_component_1.TestComponent,
                 item_table_component_1.ItemTableComponent,
-                test_component_1.TestComponent
+                network_detail_component_1.NetworkDetailComponent
             ],
             providers: [
                 hero_service_1.HeroService,
-                networkservice_1.NetworkService
+                network_service_1.NetworkService,
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

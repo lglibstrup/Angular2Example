@@ -9,16 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var network_service_1 = require('./services/network.service');
 require('./rxjs-extensions');
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(router, networkService) {
+        this.router = router;
+        this.networkService = networkService;
+        this.networks = [];
     }
+    AppComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.networkService.getHeroes().then(function (networks) { return _this.networks = networks; });
+    };
+    AppComponent.prototype.gotoNetwork = function (network) {
+        this.selectedNetwork = network;
+        this.router.navigate(['network', network.networkId]);
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
             templateUrl: 'app/app.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.Router, network_service_1.NetworkService])
     ], AppComponent);
     return AppComponent;
 }());

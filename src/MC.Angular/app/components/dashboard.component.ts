@@ -2,7 +2,7 @@
 import { Router }            from '@angular/router';
 
 import { Network }        from '../model/network';
-import { NetworkService } from '../services/networkservice';
+import { NetworkService } from '../services/network.service';
 
 @Component({
     selector: 'dashboard',
@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
         private router: Router,
         private networkService: NetworkService) {
     }
-
+    cd 
     ngOnInit() {
         this.networkService.getHeroes().then(networks => this.networks = networks);
     }

@@ -5,20 +5,22 @@ import { Network } from '../model/network';
 import variables = require('../app.var');
 @Injectable()
 export class NetworkService {
-    private heroesUrl = variables.apiUrl + "networks";
+    private apiUrl = variables.apiUrl + "networks";
     constructor(private http: Http) { }
     getHeroes() {
-        return this.http.get(this.heroesUrl)
+        return this.http.get(this.apiUrl)
             .toPromise()
             .then(response =>  response.json() as Network[])
             .catch(this.handleError);
     }
-    getHero(id: number) {
-        return this.getHeroes()
-            .then(heroes => heroes.find(hero => hero.id === id));
+    getNetwork(id: number) {
+        let url = `${this.apiUrl}/${id}`;
+        return this.http.get(url)
+            .toPromise().then(response => response.json() as Network)
+            .catch(this.handleError);
     }
     save(hero: Network): Promise<Network> {
-        if (hero.id) {
+        if (hero.networkId) {
             return this.put(hero);
         }
         return this.post(hero);
@@ -27,7 +29,7 @@ export class NetworkService {
     delete(hero: Network) {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        let url = `${this.heroesUrl}/${hero.id}`;
+        let url = `${this.apiUrl}/${hero.networkId}`;
         return this.http
             .delete(url)
             .toPromise()
@@ -40,7 +42,7 @@ export class NetworkService {
             'Content-Type': 'application/json'
         });
         return this.http
-            .post(this.heroesUrl, JSON.stringify(hero), { headers: headers })
+            .post(this.apiUrl, JSON.stringify(hero), { headers: headers })
             .toPromise()
             .then(res => res.json().data)
             .catch(this.handleError);
@@ -50,7 +52,7 @@ export class NetworkService {
     private put(hero: Network) {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        let url = `${this.heroesUrl}/${hero.id}`;
+        let url = `${this.apiUrl}/${hero.networkId}`;
         return this.http
             .put(url, JSON.stringify(hero), { headers: headers })
             .toPromise()

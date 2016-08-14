@@ -15,20 +15,22 @@ var variables = require('../app.var');
 var NetworkService = (function () {
     function NetworkService(http) {
         this.http = http;
-        this.heroesUrl = variables.apiUrl + "networks";
+        this.apiUrl = variables.apiUrl + "networks";
     }
     NetworkService.prototype.getHeroes = function () {
-        return this.http.get(this.heroesUrl)
+        return this.http.get(this.apiUrl)
             .toPromise()
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    NetworkService.prototype.getHero = function (id) {
-        return this.getHeroes()
-            .then(function (heroes) { return heroes.find(function (hero) { return hero.id === id; }); });
+    NetworkService.prototype.getNetwork = function (id) {
+        var url = this.apiUrl + "/" + id;
+        return this.http.get(url)
+            .toPromise().then(function (response) { return response.json(); })
+            .catch(this.handleError);
     };
     NetworkService.prototype.save = function (hero) {
-        if (hero.id) {
+        if (hero.networkId) {
             return this.put(hero);
         }
         return this.post(hero);
@@ -36,7 +38,7 @@ var NetworkService = (function () {
     NetworkService.prototype.delete = function (hero) {
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
-        var url = this.heroesUrl + "/" + hero.id;
+        var url = this.apiUrl + "/" + hero.networkId;
         return this.http
             .delete(url)
             .toPromise()
@@ -48,7 +50,7 @@ var NetworkService = (function () {
             'Content-Type': 'application/json'
         });
         return this.http
-            .post(this.heroesUrl, JSON.stringify(hero), { headers: headers })
+            .post(this.apiUrl, JSON.stringify(hero), { headers: headers })
             .toPromise()
             .then(function (res) { return res.json().data; })
             .catch(this.handleError);
@@ -57,7 +59,7 @@ var NetworkService = (function () {
     NetworkService.prototype.put = function (hero) {
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
-        var url = this.heroesUrl + "/" + hero.id;
+        var url = this.apiUrl + "/" + hero.networkId;
         return this.http
             .put(url, JSON.stringify(hero), { headers: headers })
             .toPromise()
@@ -75,4 +77,4 @@ var NetworkService = (function () {
     return NetworkService;
 }());
 exports.NetworkService = NetworkService;
-//# sourceMappingURL=networkservice.js.map
+//# sourceMappingURL=network.service.js.map
