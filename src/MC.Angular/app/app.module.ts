@@ -14,6 +14,7 @@ import { DashboardComponent }   from './components/dashboard.component';
 import { NetworkDetailComponent }   from './components/network-detail.component';
 import { TestComponent }     from './components/test.component';
 import { ItemTableComponent } from './components/minor/item-table.component';
+import { SearchBoxComponent } from './components/minor/search-box.component';
 
 import { HeroService }  from './services/hero.service';
 import { NetworkService } from './services/network.service';
@@ -31,7 +32,8 @@ import { NetworkService } from './services/network.service';
         DashboardComponent,
         TestComponent,
         ItemTableComponent,
-        NetworkDetailComponent
+        NetworkDetailComponent,
+        SearchBoxComponent,
     ],
     providers: [
         HeroService,

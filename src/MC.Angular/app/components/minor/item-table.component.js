@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var pipe_1 = require('./pipe');
 var ItemTableComponent = (function () {
     function ItemTableComponent() {
     }
@@ -16,10 +17,15 @@ var ItemTableComponent = (function () {
         core_1.Input(), 
         __metadata('design:type', Array)
     ], ItemTableComponent.prototype, "items", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', String)
+    ], ItemTableComponent.prototype, "term", void 0);
     ItemTableComponent = __decorate([
         core_1.Component({
             selector: 'item-table',
-            template: "\n                <table class=\"table table-striped\">\n                <thead>\n                    <tr>\n                        <td style=\"width:46px\">#</td>\n                        <td></td>\n                        <td>Item</td>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr *ngFor=\"let item of items\">\n                        <td>{{ item.blockId }}:{{ item.blockMetaData }}</td>\n                        <td>{{ item.name }}</td>\n                        <td>{{ item.numberStored }}</td>\n                    </tr>\n                </tbody>\n                </table>\n"
+            pipes: [pipe_1.SearchPipe],
+            template: "\n                <table class=\"table table-striped\">\n                <tbody>\n                    <tr *ngFor=\"let item of items\">\n                        <td>{{ item.blockId }}:{{ item.blockMetaData }}</td>\n                        <td>{{ item.name }}</td>\n                        <td>{{ item.numberStored }}</td>\n                    </tr>\n                </tbody>\n                </table>\n"
         }), 
         __metadata('design:paramtypes', [])
     ], ItemTableComponent);

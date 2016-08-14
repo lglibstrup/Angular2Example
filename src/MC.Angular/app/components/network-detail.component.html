@@ -1,2 +1,5 @@
 ﻿<h1>{{network.name}}</h1>
-<item-table [items]="network.items"></item-table>
+<search-box (update)="term = $event"></search-box>
+<item-table 
+    [items]="network.items">
+</item-table>

@@ -1,17 +1,12 @@
 ﻿import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { SearchPipe } from './pipe'
 import { Item } from '../../model/item';
 
 @Component({
     selector: 'item-table',
+    pipes: [SearchPipe],
     template: `
                 <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <td style="width:46px">#</td>
-                        <td></td>
-                        <td>Item</td>
-                    </tr>
-                </thead>
                 <tbody>
                     <tr *ngFor="let item of items">
                         <td>{{ item.blockId }}:{{ item.blockMetaData }}</td>
@@ -24,4 +19,5 @@ import { Item } from '../../model/item';
 })
 export class ItemTableComponent {
     @Input() items: Item[];
+    @Input() term: string;
 }

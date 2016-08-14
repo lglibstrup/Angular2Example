@@ -5,15 +5,15 @@
     template: `
 <div class="row">
     <div class="col-md-12"> 
-        <input #input type="text" (input)="update.emit(input.value)">
+        <input #input type="text" class="form-control" (input)="update.emit(input.value)">
     </div>
 </div>
 `
 })
 export class SearchBoxComponent {
-    @Output() searchTerm = new EventEmitter()
+    @Output() update = new EventEmitter()
 
     ngOnInit() {
-        this.searchTerm.emit('');
+        this.update.emit('');
     }
 }

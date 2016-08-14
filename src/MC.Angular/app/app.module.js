@@ -20,6 +20,7 @@ var dashboard_component_1 = require('./components/dashboard.component');
 var network_detail_component_1 = require('./components/network-detail.component');
 var test_component_1 = require('./components/test.component');
 var item_table_component_1 = require('./components/minor/item-table.component');
+var search_box_component_1 = require('./components/minor/search-box.component');
 var hero_service_1 = require('./services/hero.service');
 var network_service_1 = require('./services/network.service');
 var AppModule = (function () {
@@ -39,7 +40,8 @@ var AppModule = (function () {
                 dashboard_component_1.DashboardComponent,
                 test_component_1.TestComponent,
                 item_table_component_1.ItemTableComponent,
-                network_detail_component_1.NetworkDetailComponent
+                network_detail_component_1.NetworkDetailComponent,
+                search_box_component_1.SearchBoxComponent,
             ],
             providers: [
                 hero_service_1.HeroService,
